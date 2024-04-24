@@ -20,7 +20,16 @@ function createLi(text, classes) {
 
   const span = document.createElement('span');
   const doneButton = createButton('Done', 'btn btn-outline-success');
+  doneButton.addEventListener('click', () => {
+    li.classList.toggle('done');
+  });
+
   const deleteButton = createButton('Delete', 'btn btn-outline-danger ms-1');
+  deleteButton.addEventListener('click', () => {
+    ulTodo.removeChild(li);
+    // li.remove();
+  });
+
   span.append(doneButton, deleteButton);
   li.append(span);
 
